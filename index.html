@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body { text-align: center; font-family: 'Arial', sans-serif; background-color: #ffe6e6; display: flex; flex-direction: column; justify-content: center; height: 100vh; margin: 0; }
+        h1 { color: #d63384; }
+        .container { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); display: inline-block; }
+        img { width: 250px; border-radius: 15px; margin-bottom: 20px; }
+        .buttons { margin-top: 20px; }
+        button { font-size: 1.2rem; padding: 10px 20px; border: none; border-radius: 10px; cursor: pointer; transition: 0.3s; }
+        #yes { background-color: #ff4d6d; color: white; margin-right: 10px; }
+        #no { background-color: #adb5bd; color: white; position: absolute; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img id="valentine-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHYybmNqZzRyeHh6bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/c76IJLufpN61i/giphy.gif" alt="Cute gif">
+        
+        <h1>Will you be my Valentine? ❤️</h1>
+        
+        <div class="buttons">
+            <button id="yes" onclick="celebrate()">Yes!</button>
+            <button id="no" onmouseover="moveButton()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function moveButton() {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            const noBtn = document.getElementById('no');
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+
+        function celebrate() {
+            document.querySelector('.container').innerHTML = "<h1>Yay! See you on the 14th! 🥰</h1><img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHYybmNqZzRyeHh6bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l41lH4ADRtAYnGsLe/giphy.gif'>";
+        }
+    </script>
+</body>
+</html>
