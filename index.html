@@ -7,23 +7,27 @@
     <style>
         body { text-align: center; font-family: 'Arial', sans-serif; background-color: #ffe6e6; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; margin: 0; overflow: hidden; }
         .container { background: white; padding: 30px; border-radius: 25px; box-shadow: 0 15px 35px rgba(255, 77, 109, 0.2); width: 85%; max-width: 400px; position: relative; z-index: 10; }
-        img { width: 100%; height: auto; border-radius: 15px; margin-bottom: 20px; object-fit: cover; }
+        
+        /* Updated to fit your uploaded photo */
+        img { width: 100%; height: auto; border-radius: 15px; margin-bottom: 20px; object-fit: cover; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        
         h1 { color: #d63384; font-size: 1.6rem; margin-bottom: 20px; }
         .buttons { margin-top: 20px; display: flex; justify-content: center; gap: 15px; position: relative; height: 60px; }
         button { font-size: 1.2rem; padding: 12px 28px; border: none; border-radius: 12px; cursor: pointer; transition: 0.3s transform; font-weight: bold; }
         #yes { background-color: #ff4d6d; color: white; box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4); }
         #no { background-color: #adb5bd; color: white; position: absolute; z-index: 999; }
-        .heart { position: absolute; color: #ff4d6d; animation: float 3s linear infinite; opacity: 0; }
+        
+        .heart { position: absolute; color: #ff4d6d; animation: float 3s linear infinite; opacity: 0; bottom: -10%; }
         @keyframes float {
             0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img id="valentine-img" src="https://drive.google.com/uc?export=view&id=1qrjlWQqca7lxGog0PbkLG5OR7aoBuMqX" alt="Our Photo">
+        <img id="valentine-img" src="IMG_3444.jpeg" alt="Valentine Photo">
         
         <h1 id="question">Will you be my Valentine? ❤️</h1>
         
@@ -35,7 +39,7 @@
 
     <script>
         function moveButton() {
-            // Screen boundaries for iPad/Mobile
+            // Screen boundaries
             const x = Math.random() * (window.innerWidth - 100);
             const y = Math.random() * (window.innerHeight - 50);
             const noBtn = document.getElementById('no');
@@ -47,9 +51,10 @@
             document.getElementById('question').innerHTML = "Yay! See you on the 14th! 🥰";
             document.getElementById('no').style.display = 'none';
             document.getElementById('yes').style.transform = 'scale(1.4)';
+            // Changes to a celebratory GIF on click
             document.getElementById('valentine-img').src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHYybmNqZzRyeHh6bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4bmZ4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l41lH4ADRtAYnGsLe/giphy.gif";
             
-            // Create falling hearts
+            // Start heart shower
             setInterval(createHeart, 300);
         }
 
@@ -59,11 +64,9 @@
             heart.innerHTML = '❤️';
             heart.style.left = Math.random() * 100 + 'vw';
             heart.style.fontSize = Math.random() * 20 + 10 + 'px';
-            heart.style.duration = Math.random() * 2 + 3 + 's';
             document.body.appendChild(heart);
             setTimeout(() => heart.remove(), 3000);
         }
     </script>
 </body>
 </html>
-
